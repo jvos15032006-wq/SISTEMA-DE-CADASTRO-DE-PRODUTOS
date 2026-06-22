@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos | SCP</title>
+    <link rel="stylesheet" href="produtos.css">   
+    <style>
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .logo-link:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div>
+            <a href="../menu/menu.html" class="logo-link">
+                <div class="sidebar-logo">SCP</div>
+            </a>
+            
+            <div class="menu-items">
+                <a href="../clientes/clientes.html" class="menu-item">
+                    <img src="../menu/user.png" alt="Clientes">
+                    <span>Clientes</span>
+                </a>
+                <a href="../categorias/categorias.html" class="menu-item">
+                    <img src="../menu/category.png" alt="Categorias"> 
+                    <span>Categorias</span>
+                </a>
+                <a href="produtos.html" class="menu-item active">
+                    <img src="../menu/products.png" alt="Produtos">
+                    <span>Produtos</span>
+                </a>
+                <a href="../orcamentos/orcamentos.html" class="menu-item">
+                    <img src="../menu/budget.png" alt="Orçamentos">
+                    <span>Orçamentos</span>
+                </a>
+            </div>
+        </div>
+        <a href="../login/login.html" class="menu-item sair" id="bt-sair">
+            <img src="../menu/logout.png" alt="Sair">
+            <span>Sair</span>
+        </a>
+    </div>
+
+    <div class="content">
+        <h2>Gerenciamento de Produtos</h2>
+        
+        <form id="form-produto">
+            <input type="hidden" id="produto-id">
+
+            <div class="form-group">
+                <label for="nome_produto">Nome do Produto:</label>
+                <input type="text" id="nome_produto" placeholder="Ex: Teclado Mecânico, Cadeira de Escritório" required>
+            </div>
+
+            <div class="form-group">
+                <label for="preco_produto">Preço Unitário (R$):</label>
+                <input type="number" id="preco_produto" step="0.01" placeholder="Ex: 150.00" required>
+            </div>
+
+            <div class="form-group">
+                <label for="select_categoria">Categoria:</label>
+                <select id="select_categoria" required>
+                    <option value="">Carregando categorias...</option>
+                </select>
+            </div>
+
+            <div id="status-msg"></div>
+
+            <div class="form-buttons">
+                <button type="submit" id="btn-salvar">Salvar Produto</button>
+                <button type="button" id="btn-cancelar" style="display: none;">Cancelar Edição</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <h3>Produtos Cadastrados</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do Produto</th>
+                        <th>Preço</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-produtos-corpo">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="produtos.js"></script>
+</body>
+</html>

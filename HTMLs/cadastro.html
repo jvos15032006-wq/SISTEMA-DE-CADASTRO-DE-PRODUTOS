@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+  <form class="form-container" id="form-registro">
+    <h2>Novo usuário</h2>
+    <label for="login">Nome ou e-mail:</label>
+    <input type="text" id="login" placeholder="nome@exemplo.com"><br>
+    <p></p>
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" placeholder="********">
+    <p></p>
+    <div id="status-msg"></div>
+    <button type="submit">Registrar-se</button>
+    <p>Já possui uma conta? <a href="../login/login.html">Entrar</a></p>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="cadastro.js"></script>
+</body>
+</html>
