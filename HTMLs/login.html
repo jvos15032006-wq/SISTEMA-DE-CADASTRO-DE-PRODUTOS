@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SCP</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <h1>SCP</h1>
+
+    <form id="form-login" style="display: flex; flex-direction: column; align-items: center;">
+        
+        <div>
+            <label for="usuario">Login</label><br>
+            <input type="text" id="usuario" placeholder="Usuário" required>
+        </div>
+        
+        <p></p> <div>
+            <label for="password">Senha:</label><br>
+            <input type="password" id="password" placeholder="********" required>
+        </div>
+
+        <div id="status-msg" style="display: none; width: 300px; padding: 10px; margin: 15px 0; border-radius: 8px; font-weight: bold; text-align: center;"></div>
+        
+        <p></p>
+
+        <button type="submit">Entrar</button>
+        
+    </form>
+
+    <p>Não possui uma conta? <a href="../cadastro/cadastro.html">Cadastre-se</a></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="login.js"></script>
+</body>
+</html>
