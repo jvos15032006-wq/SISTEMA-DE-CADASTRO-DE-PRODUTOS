@@ -1,0 +1,291 @@
+/* ==========================================================================
+   SIDEBAR E LOGO SCP (PADRÃO IDÊNTICO ÀS SUAS IMAGENS)
+   ========================================================================= */
+.sidebar-logo {
+    padding: 0 20px 20px 20px;
+    font-size: 50px;
+    font-weight: bold;
+    border: 10px solid #2563EB;
+    border-radius: 10px;
+    letter-spacing: 5px;
+    color: #e2e8f0;
+}
+.logo-link {
+    text-decoration: none;
+}
+/* ==========================================================================
+   LAYOUT GERAL DA PÁGINA
+   ========================================================================= */
+.container-usuarios {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 650px;
+}
+
+.content h2 {
+    font-size: 26px;
+    color: #002d62; /* Azul escuro dos seus títulos oficiais */
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+/* ==========================================================================
+   CARDS DE METRICAS (LIMPO E SEM EMOJIS)
+   ========================================================================= */
+.dashboard-stats {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 18px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e2e8f0;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #718096;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+}
+
+.stat-info h3 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   FORMULÁRIO DE CADASTRO
+   ========================================================================= */
+.card-formulario {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #1d5bf0;
+    margin-bottom: 0;
+}
+
+.card-formulario h3 {
+    font-size: 18px;
+    color: #2d3748;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #e2e8f0;
+    padding-bottom: 12px;
+}
+
+.campo-grupo {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.campo-grupo label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.campo-grupo input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+.campo-grupo input:focus {
+    outline: none;
+    border-color: #1d5bf0;
+    background-color: #fff;
+}
+
+/* BOTOES DE AÇÃO */
+.botoes-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-salvar {
+    flex-grow: 1;
+    background-color: #1d5bf0; /* Azul Royal oficial das suas telas */
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-salvar:hover { background-color: #1141ab; }
+
+.btn-cancelar {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-cancelar:hover { background-color: #cbd5e0; }
+
+hr {
+    margin: 35px 0;
+    border: 0;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.content h3 {
+    color: #003366;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.search-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    max-width: 650px;
+}
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-group label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.search-container input,
+.search-container select {
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    color: #2d3748;
+    background-color: #f8fafc;
+}
+
+.table-container {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+}
+
+#status-msg {
+    display: none;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 14px;
+}
+
+#status-msg.erro {
+    background-color: #fce8e6;
+    color: #a80000;
+    border: 1px solid #f5c2c2;
+}
+
+#status-msg.sucesso {
+    background-color: #e6f4ea;
+    color: #137333;
+    border: 1px solid #c2e7cc;
+}
+
+/* --- CSS DOS BOTÕES DE AÇÃO NA TABELA --- */
+.btn-editar, .btn-excluir {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 8px; /* Espaçamento entre os botões */
+}
+
+.btn-editar {
+    background-color: #cbd5e1;
+    color: #334155;
+}
+.btn-editar:hover { background-color: #94a3b8; }
+
+.btn-excluir {
+    background-color: #fee2e2;
+    color: #ef4444;
+    margin-right: 0; /* Remove a margem do último para alinhar perfeitamente */
+}
+.btn-excluir:hover { background-color: #fca5a5; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 16px;
+    font-size: 15px;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #003366;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+td {
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+}
