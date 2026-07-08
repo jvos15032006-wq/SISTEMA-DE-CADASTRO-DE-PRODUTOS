@@ -1,6 +1,3 @@
-/* ==========================================================================
-   SIDEBAR E LOGO SCP (PADRÃO IDÊNTICO ÀS SUAS IMAGENS)
-   ========================================================================= */
 .sidebar-logo {
     padding: 0 20px 20px 20px;
     font-size: 50px;
@@ -13,9 +10,7 @@
 .logo-link {
     text-decoration: none;
 }
-/* ==========================================================================
-   LAYOUT GERAL DA PÁGINA
-   ========================================================================= */
+
 .container-usuarios {
     display: flex;
     flex-direction: column;
@@ -26,15 +21,12 @@
 
 .content h2 {
     font-size: 26px;
-    color: #002d62; /* Azul escuro dos seus títulos oficiais */
+    color: #002d62; 
     margin-bottom: 25px;
     font-weight: bold;
     font-family: sans-serif;
 }
 
-/* ==========================================================================
-   CARDS DE METRICAS (LIMPO E SEM EMOJIS)
-   ========================================================================= */
 .dashboard-stats {
     width: 100%;
     margin-bottom: 15px;
@@ -69,10 +61,6 @@
     margin: 0;
     line-height: 1;
 }
-
-/* ==========================================================================
-   FORMULÁRIO DE CADASTRO
-   ========================================================================= */
 .card-formulario {
     background: #ffffff;
     padding: 30px;
@@ -132,7 +120,7 @@
 
 .btn-salvar {
     flex-grow: 1;
-    background-color: #1d5bf0; /* Azul Royal oficial das suas telas */
+    background-color: #1d5bf0;
     color: white;
     padding: 13px;
     border: none;
@@ -239,8 +227,6 @@ hr {
     color: #137333;
     border: 1px solid #c2e7cc;
 }
-
-/* --- CSS DOS BOTÕES DE AÇÃO NA TABELA --- */
 .btn-editar, .btn-excluir {
     padding: 6px 12px;
     border: none;
@@ -249,7 +235,7 @@ hr {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
-    margin-right: 8px; /* Espaçamento entre os botões */
+    margin-right: 8px;
 }
 
 .btn-editar {
@@ -261,7 +247,7 @@ hr {
 .btn-excluir {
     background-color: #fee2e2;
     color: #ef4444;
-    margin-right: 0; /* Remove a margem do último para alinhar perfeitamente */
+    margin-right: 0;
 }
 .btn-excluir:hover { background-color: #fca5a5; }
 
