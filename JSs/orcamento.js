@@ -30,12 +30,11 @@ function limparMensagem() {
     statusMsg.style.display = "none";
 }
 
-// ================= CARREGAR CLIENTES NO SELECT =================
 async function buscarClientesSelect() {
     try {
         const { data: clientes, error } = await supabaseClient
             .from('cliente')
-            .select('id_cliente, ds_nome_cliente') // Altere os nomes se na tabela cliente for diferente
+            .select('id_cliente, ds_nome_cliente') 
             .order('ds_nome_cliente', { ascending: true });
 
         if (error) throw error;
@@ -52,7 +51,6 @@ async function buscarClientesSelect() {
     }
 }
 
-// ================= CARREGAR PRODUTOS NO SELECT =================
 async function buscarProdutosSelect() {
     try {
         const { data: produtos, error } = await supabaseClient
@@ -75,12 +73,10 @@ async function buscarProdutosSelect() {
     }
 }
 
-// ================= LISTAR ORÇAMENTOS (Mestre + Item) =================
 async function buscarOrcamentos() {
     try {
         tabelaCorpo.innerHTML = "<tr><td colspan='6'>Carregando orçamentos...</td></tr>";
 
-        // Busca o item que liga ao mestre, trazendo os nomes das relações
         const { data: itens, error } = await supabaseClient
             .from('orcamento_item')
             .select('id_orcamento_item, id_orcamento, id_produto, qtd_produto, vl_unitario, orcamento(id_cliente, cliente(ds_nome_cliente)), produto(ds_produto)')
@@ -122,13 +118,12 @@ async function buscarOrcamentos() {
     }
 }
 
-// ================= SALVAR OU ALTERAR ORÇAMENTO =================
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     limparMensagem();
 
     const idMestre = inputId.value;
-    const idItemVinculado = form.dataset.idItem; // Guarda o ID do item em edição na memória
+    const idItemVinculado = form.dataset.idItem; 
     const clienteId = selectCliente.value;
     const produtoId = selectProduto.value;
     const qtd = parseInt(inputQtd.value);
@@ -139,15 +134,12 @@ form.addEventListener('submit', async (e) => {
 
     try {
         if (idMestre) {
-            // --- EDIÇÃO (UPDATE) ---
-            // Atualiza o mestre
             const { error: errMestre } = await supabaseClient
                 .from('orcamento')
                 .update({ id_cliente: parseInt(clienteId), vl_total_orcamento: valorTotalCalculado })
                 .eq('id_orcamento', idMestre);
             if (errMestre) throw errMestre;
 
-            // Atualiza o item associado
             const { error: errItem } = await supabaseClient
                 .from('orcamento_item')
                 .update({ id_produto: parseInt(produtoId), qtd_produto: qtd, vl_unitario: precoUnitario })
@@ -156,15 +148,12 @@ form.addEventListener('submit', async (e) => {
 
             exibirMensagem("Orçamento atualizado com sucesso!", "sucesso");
         } else {
-            // --- CADASTRO (INSERT) ---
-            // Insere o mestre primeiro
             const { data: novoMestre, error: errInsMestre } = await supabaseClient
                 .from('orcamento')
                 .insert([{ id_cliente: parseInt(clienteId), dt_orcamento: new Date().toISOString(), vl_total_orcamento: valorTotalCalculado }])
                 .select();
             if (errInsMestre) throw errInsMestre;
 
-            // Pega o ID gerado e joga no item
             const { error: errInsItem } = await supabaseClient
                 .from('orcamento_item')
                 .insert([{ id_orcamento: novoMestre[0].id_orcamento, id_produto: parseInt(produtoId), qtd_produto: qtd, vl_unitario: precoUnitario }]);
@@ -181,11 +170,10 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
-// ================= PREPARAR EDIÇÃO =================
 window.prepararEdicao = function(idMestre, idItem, idCliente, idProduto, quantidade) {
     limparMensagem();
     inputId.value = idMestre;
-    form.dataset.idItem = idItem; // Guarda o ID do item
+    form.dataset.idItem = idItem;
     selectCliente.value = idCliente || "";
     selectProduto.value = idProduto || "";
     inputQtd.value = quantidade;
@@ -204,15 +192,12 @@ function resetarFormulario() {
     btnCancelar.style.display = "none";
 }
 
-// ================= EXCLUIR ORÇAMENTO =================
 window.excluirOrcamento = async function(idMestre, idItem) {
     limparMensagem();
     if (!confirm(`Deseja realmente excluir o orçamento ID ${idMestre}?`)) return;
 
     try {
-        // Deleta o item primeiro por causa do relacionamento de FK
         await supabaseClient.from('orcamento_item').delete().eq('id_orcamento_item', idItem);
-        // Deleta o cabeçalho
         const { error } = await supabaseClient.from('orcamento').delete().eq('id_orcamento', idMestre);
 
         if (error) throw error;
