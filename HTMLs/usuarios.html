@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Usuários | SCP</title>
+    <link rel="stylesheet" href="../menu/menu.css">
+    <link rel="stylesheet" href="usuarios.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div>
+            <div class="sidebar-logo">SCP</div>
+            <div class="menu-items">
+                <a href="../clientes/clientes.html" class="menu-item">
+                    <img src="../menu/user.png" alt="Clientes">
+                    <span>Clientes</span>
+                </a>
+                <a href="../categorias/categorias.html" class="menu-item">
+                    <img src="../menu/category.png" alt="Categorias">
+                    <span>Categorias</span>
+                </a>
+                <a href="../produtos/produtos.html" class="menu-item">
+                    <img src="../menu/products.png" alt="Produtos">
+                    <span>Produtos</span>
+                </a>
+                <a href="../orcamento/orcamentos.html" class="menu-item">
+                    <img src="../menu/budget.png" alt="Orcamentos">
+                    <span>Orcamentos</span>
+                </a>
+                <a href="usuarios.html" class="menu-item" style="background-color: #4a5568; color: #fff;">
+                    <img src="../menu/users.png" alt="Usuarios">
+                    <span>Usuários</span>
+                </a>
+            </div>
+        </div>
+        <a href="../login/login.html" class="menu-item sair" id="bt-sair">
+            <img src="../menu/logout.png" alt="Sair">
+            <span>Sair</span>
+        </a>
+    </div>
+
+    <div class="content">
+        <h2>Gerenciamento de Usuários</h2>
+
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-info">
+                    <span class="stat-label">Total de Usuários Cadastrados</span>
+                    <h3 id="stat-total">0</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-formulario">
+            <h3 id="titulo-form">Cadastrar Novo Usuário</h3>
+
+            <form id="form-registro">
+                <input type="hidden" id="usuario-id">
+
+                <div class="campo-grupo">
+                    <label for="login">Nome ou e-mail de acesso:</label>
+                    <input type="text" id="login" placeholder="Ex: pedro ou nome@exemplo.com" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="senha">Senha de Acesso:</label>
+                    <input type="password" id="senha" placeholder="No mínimo 6 caracteres" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="confirmar-senha">Confirmar Senha:</label>
+                    <input type="password" id="confirmar-senha" placeholder="Repita a senha" required>
+                </div>
+
+                <div id="status-msg"></div>
+
+                <div class="botoes-container">
+                    <button type="submit" id="btn-submit-form" class="btn-salvar">Salvar Usuário</button>
+                    <button type="button" id="btn-cancelar-edicao" class="btn-cancelar" style="display: none;">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="search-container">
+            <div class="search-group">
+                <label for="search-filter">Pesquisar por:</label>
+                <select id="search-filter">
+                    <option value="todos">Qualquer tipo</option>
+                    <option value="id">ID</option>
+                    <option value="usuario">Usuário</option>
+                </select>
+            </div>
+            <div class="search-group" style="flex: 1;">
+                <label for="search-input">Buscar:</label>
+                <input type="text" id="search-input" placeholder="Digite aqui...">
+            </div>
+        </div>
+
+        <h3>Usuários Cadastrados</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-usuarios-corpo">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../shared/scp-utils.js"></script>
+    <script src="usuarios.js"></script>
+    <script src="../menu/menu.js"></script>
+</body>
+</html>
